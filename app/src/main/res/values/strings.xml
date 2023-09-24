@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DemoFutsal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">NAME</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="forgot">Forgot</string>
+</resources>
