@@ -1,8 +1,6 @@
 package com.example.demofutsal
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -37,7 +35,7 @@ class LoginFragment : Fragment() {
                             Toast.makeText(activity, "Please verify your email", Toast.LENGTH_SHORT).show()
                          }
                     } else {
-                        Toast.makeText(activity, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
@@ -55,7 +53,7 @@ class LoginFragment : Fragment() {
                     if(it.isSuccessful){
                         Toast.makeText(activity, "Reset password link sent to your email", Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(activity, "Reset password link failed to send to your email", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
             }else{
