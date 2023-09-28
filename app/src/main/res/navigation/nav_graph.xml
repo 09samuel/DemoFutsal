@@ -32,7 +32,16 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_loginFragment"
+            android:id="@+id/action_homeFragment_to_groundAdminDashboardFragment"
+            app:destination="@id/groundAdminDashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groundAdminDashboardFragment"
+        android:name="com.example.demofutsal.GroundAdminDashboardFragment"
+        android:label="fragment_ground_admin_dashboard"
+        tools:layout="@layout/fragment_ground_admin_dashboard" >
+        <action
+            android:id="@+id/action_groundAdminDashboardFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

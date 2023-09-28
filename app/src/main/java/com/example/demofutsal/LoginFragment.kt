@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.findNavController
 import com.example.demofutsal.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -13,13 +14,23 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var firebaseAuth : FirebaseAuth
+    //val db = Firebase.firestore
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            // logic when backPress is clicked
+            override fun handleOnBackPressed() {
+                //close app on double back click
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater,container,false)
-
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnLogin.setOnClickListener {
@@ -29,11 +40,17 @@ class LoginFragment : Fragment() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        if(firebaseAuth.currentUser!!.isEmailVerified){
-                            view?.findNavController()?.navigate(R.id.action_loginFragment_to_homeFragment)
-                         }else{
-                            Toast.makeText(activity, "Please verify your email", Toast.LENGTH_SHORT).show()
-                         }
+                        /*also add in override on start method too
+                        store uid/email in db and retrieve it to check here
+                        if(email=="b21634@fragnelcollege.edu.in"){
+                            view?.findNavController()?.navigate(R.id.action_loginFragment_to_groundAdminDashboardFragment)
+                        }else{*/
+                            if(firebaseAuth.currentUser!!.isEmailVerified){
+                                view?.findNavController()?.navigate(R.id.action_loginFragment_to_homeFragment)
+                             }else{
+                                Toast.makeText(activity, "Please verify your email", Toast.LENGTH_SHORT).show()
+                             }
+                        //}
                     } else {
                         Toast.makeText(activity, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                     }
@@ -46,7 +63,7 @@ class LoginFragment : Fragment() {
             it.findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
         }
 
-        binding.btnForgot.setOnClickListener{
+        binding.tvForgot.setOnClickListener{
             val email = binding.etLoginEmail.text.toString()
             if(email.isNotEmpty()){
                 firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener {
@@ -60,14 +77,19 @@ class LoginFragment : Fragment() {
                 Toast.makeText(activity, "Enter your email", Toast.LENGTH_SHORT).show()
             }
         }
-
         return binding.root
     }
 
+    //remember login
     override fun onStart() {
         super.onStart()
         if(firebaseAuth.currentUser!=null){
-            view?.findNavController()?.navigate(R.id.homeFragment)
+            if(firebaseAuth.currentUser!!.isEmailVerified){
+                view?.findNavController()?.navigate(R.id.action_loginFragment_to_homeFragment)
+            }else{
+                Toast.makeText(activity, "Please verify your email", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
+

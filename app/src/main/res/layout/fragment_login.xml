@@ -12,12 +12,13 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:textSize="60sp"
+        android:fontFamily="@font/manrope_extrabold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintVertical_bias="0.196" />
 
     <EditText
         android:id="@+id/etLoginEmail"
@@ -27,9 +28,11 @@
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:fontFamily="@font/manrope_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintHorizontal_bias="0.339"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.434" />
@@ -41,6 +44,8 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:textSize="16sp"
+        android:fontFamily="@font/manrope_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.338"
@@ -54,36 +59,54 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:textAllCaps="true"
+        android:textSize="14sp"
+        android:fontFamily="@font/manrope_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.644" />
 
-    <Button
-        android:id="@+id/btnForgot"
+    <TextView
+        android:id="@+id/tvForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forgot"
         android:textAllCaps="true"
+        android:fontFamily="@font/manrope_semibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <TextView
         android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:textSize="24sp"
+        android:text="Don't have an account? Sign up"
+        android:textSize="14sp"
+        android:fontFamily="@font/manrope_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.886" />
+        app:layout_constraintVertical_bias="0.946" />
+
+    <TextView
+        android:id="@+id/tvLoginDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please sign in to continue"
+        android:textSize="14sp"
+        android:fontFamily="@font/manrope_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
 </androidx.constraintlayout.widget.ConstraintLayout>
